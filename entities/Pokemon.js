@@ -3,6 +3,7 @@ class Pokemon {
         this.id = pokemon_json.id
         this.string_id = pokemon_json.name
         this.sprite_url = pokemon_json.sprites.front_default
+        this.shiny_sprite_url = pokemon_json.sprites.front_shiny
         this.order = pokemon_json.order
         this.height = pokemon_json.height
         this.weight = pokemon_json.weight

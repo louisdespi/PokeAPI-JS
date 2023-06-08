@@ -69,14 +69,20 @@ class App {
                         <div class="sprite">
                             <img src="${pokemon.sprite_url}" />
                         </div>
-                        <span class="weight">${pokemon.weight} hg</span>
-                        <span class="height">${pokemon.height} dc</span>
+                        <span class="weight">${pokemon.weight} Hg</span>
+                        <span class="height">${pokemon.height} Dc</span>
                         <div class="types">
                         </div>
                         <div class="abilities">
                         </div>
                     </div>
                 `)
+                $pokemon_block.find('.sprite').on('mouseenter', (e) => {
+                    $(e.currentTarget).find('img').attr('src', pokemon.shiny_sprite_url)
+                })
+                $pokemon_block.find('.sprite').on('mouseleave', (e) => {
+                    $(e.currentTarget).find('img').attr('src', pokemon.sprite_url)
+                })
                 this.$grid.append($pokemon_block)
                 let $types = $pokemon_block.find('.types')
                 let $abilities = $pokemon_block.find('.abilities')
