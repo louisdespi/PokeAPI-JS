@@ -1,8 +1,22 @@
+body
+{
+    background-image:url('../assets/background-image.jpeg');
+    background-repeat: repeat;
+}
+
+.app
+{
+    margin:auto;
+    width:98%;
+}
+
 .app .display {
     box-shadow: 0 0 2px #363636;
     padding:35px;
-    max-height: 670px;
+    max-height: 98vh;
+    box-sizing: border-box;
     overflow-y: scroll;
+    background-color:rgba(255,255,255,0.9);
     /*scroll-snap-type: y mandatory;*/
 }
 
@@ -53,11 +67,11 @@
 
 .app .display .sprite img
 {
-    padding:3px;
+    /*padding:3px;*/
     background-color: white;
     border:1px solid #363636;
-    width:120px;
-    height:120px;
+    width:110px;
+    height:110px;
 }
 
 .app .display .id
@@ -108,11 +122,20 @@
     margin:auto;
     width:90%;
     padding:0;
+    text-align: center;
+}
+
+.app .display .types .type img{
+    width:40px;
+    height:40px;
+    /*margin:auto;
+    width:90%;
+    padding:0;
     line-height: 14px;
     height:16px;
     font-size: 1em;
     text-align: center;
-    color:white;
+    color:white;*/
 }
 
 .app .display .abilities {

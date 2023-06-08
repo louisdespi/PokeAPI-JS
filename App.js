@@ -82,7 +82,9 @@ class App {
                 let $abilities = $pokemon_block.find('.abilities')
                 for (let type of pokemon.types) {
                     $types.append(`
-                        <span class="type type-${type.id}">${type.name.toLowerCase()}</span>
+                        <span class="type type-${type.id}">
+                            <img alt="${type.name}" title="${type.name}" src="assets/types/${type.id}c.png">
+                        </span>
                     `)
                     /*
                         <img src="assets/types/${type.id}.png">
