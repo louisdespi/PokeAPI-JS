@@ -8,7 +8,7 @@
     z-index: 10;
     width:100%;
     height:100%;
-    background-color:rgba(0, 0, 0, 0.5);
+    background-color:rgba(0, 0, 0, 0.7);
     display:flex;
     align-items: center;
     justify-content: center;
@@ -16,6 +16,7 @@
 
 .app .loading-bar.outter
 {
+    opacity: 0.75;
     width:95%;
     height:50px;
     background-color:#989898;
@@ -36,15 +37,28 @@
     transition: width 0.1s ease;
 }
 
-.app .loading-bar.percentage
+.app .loading-bar.percentage, .app .loading-bar.collection, .app .loading-bar.last-loaded
 {
+    font-family: 'Roboto', sans-serif;
+    font-variant: small-caps;
     position: absolute;
     z-index: 12;
     line-height: 50px;
     width:100%;
     text-align: center;
     font-size: 1.3em;
-    font-family: 'Roboto', sans-serif;
+}
+
+.app .loading-bar.last-loaded
+{
+    color:white;
+    top : -50px;
+}
+
+.app .loading-bar.collection
+{
+    color:white;
+    top : -100px;
 }
 
 .hidden

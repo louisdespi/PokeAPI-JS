@@ -19,6 +19,7 @@ class Manager extends EventEmitter {
             else
                 this.collections[p.entity.name].loaded_count = 0
             this.trigger('collection_update', {
+                'name' : p.entity.name,
                 'collection' : this.collections[p.entity.name],
                 'item' : p.item,
                 'loading' : this.collections[p.entity.name].loaded_count/this.collections[p.entity.name].load_count

@@ -11,6 +11,8 @@ class App {
                 </div>
                 <div class="loading-bar layer hidden">
                     <div class="loading-bar outter">
+                        <span class="loading-bar collection"></span>
+                        <span class="loading-bar last-loaded"></span>
                         <span class="loading-bar percentage"></span>
                         <div class="loading-bar inner">
                         </div>
@@ -30,12 +32,16 @@ class App {
             $outter : this.$root.find('.loading-bar.outter'),
             $inner : this.$root.find('.loading-bar.inner'),
             $percentage : this.$root.find('.loading-bar.percentage'),
+            $collection : this.$root.find('.loading-bar.collection'),
+            $last_loaded : this.$root.find('.loading-bar.last-loaded')
         }
         this.manager = new Manager()
         this.manager.on('collection_update', (p) => {
             let percentage = Math.round(p.loading * 100)
             this.$loading_bar.$inner.css('width', `${percentage}%`)
             this.$loading_bar.$percentage.html(`${percentage}%`)
+            this.$loading_bar.$collection.html(`${p.name}`)
+            this.$loading_bar.$last_loaded.html(`${p.item.string_id}`)
         })
         this.current_page = 0
     }
@@ -65,7 +71,7 @@ class App {
                 let $pokemon_block = $(`
                     <div class="pokemon-block block-${pokemon.id}">
                         <span class="id"># ${pokemon.id}</span>
-                        <span class="name">${pokemon.specie.name.toLowerCase()}</span>
+                        <span class="name">${pokemon.specie.name}</span>
                         <div class="sprite">
                             <img src="${pokemon.sprite_url}" />
                         </div>
@@ -77,11 +83,11 @@ class App {
                         </div>
                     </div>
                 `)
-                $pokemon_block.find('.sprite').on('mouseenter', (e) => {
-                    $(e.currentTarget).find('img').attr('src', pokemon.shiny_sprite_url)
+                $pokemon_block.find('.sprite img').on('mouseenter', (e) => {
+                    $(e.currentTarget).attr('src', pokemon.shiny_sprite_url)
                 })
-                $pokemon_block.find('.sprite').on('mouseleave', (e) => {
-                    $(e.currentTarget).find('img').attr('src', pokemon.sprite_url)
+                $pokemon_block.find('.sprite img').on('mouseleave', (e) => {
+                    $(e.currentTarget).attr('src', pokemon.sprite_url)
                 })
                 this.$grid.append($pokemon_block)
                 let $types = $pokemon_block.find('.types')
