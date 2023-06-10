@@ -60,6 +60,7 @@ class App {
     search(filter_funcs) {
         this.pokemon_pages = Utils.chunkify(this.manager.where(filter_funcs), 60)
         this.page_max = this.pokemon_pages.length - 1
+        this.current_page = 0
         this.refresh()
     }
 
@@ -77,6 +78,9 @@ class App {
                         </div>
                         <div class="shiny_sprite">
                             <img src="${pokemon.shiny_sprite_url}" />
+                        </div>
+                        <div class="icon">
+                            <img src="${pokemon.icon}" />
                         </div>
                         <span class="weight">${pokemon.weight} Hg</span>
                         <span class="height">${pokemon.height} Dc</span>
