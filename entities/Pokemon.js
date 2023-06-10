@@ -16,5 +16,13 @@ class Pokemon {
             this.types.push(typeObj.type.name)
         }
         this.specie = pokemon_json.species.name
+        this.stats = {}
+        for (let statObj of pokemon_json.stats) {
+            this.stats[statObj.stat.name] = {
+                'stat' : statObj.stat,
+                'base_ev' : statObj.effort,
+                'base_stat' : statObj.base_stat
+            }
+        }
     }
 }

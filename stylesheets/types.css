@@ -70,3 +70,116 @@
 {
     background-color: #ef70ef
 }
+
+
+.type-1
+{
+    background-color: #a0a2a0
+}
+.type-2
+{
+    background-color: #ff8100
+}
+.type-3
+{
+    background-color: #82baef
+}
+.type-4
+{
+    background-color: #923fcc
+}
+.type-5
+{
+    background-color: #92501b
+}
+.type-6
+{
+    background-color: #b0aa82
+}
+.type-7
+{
+    background-color: #91a112
+}
+.type-8
+{
+    background-color: #703f70
+}
+.type-9
+{
+    background-color: #60a2b9
+}
+.type-10
+{
+    background-color: #e72324
+}
+.type-11
+{
+    background-color: #2481ef
+}
+.type-12
+{
+    background-color: #3da224
+}
+.type-13
+{
+    background-color: #fac100
+}
+.type-14
+{
+    background-color: #ef3f7a
+}
+.type-15
+{
+    background-color: #3dd9ff;
+}
+.type-16
+{
+    background-color: #4f60e2
+}
+.type-17
+{
+    background-color: #4f3f3c
+}
+.type-18
+{
+    background-color: #ef70ef
+}
+
+body {
+    /* 1 */
+    --normal-type-color: #a0a2a0;
+    /* 2 */
+    --fighting-type-color: #ff8100;
+    /* 3 */
+    --flying-type-color: #82baef;
+    /* 4 */
+    --poison-type-color: #923fcc;
+    /* 5 */
+    --ground-type-color: #92501b;
+    /* 6 */
+    --rock-type-color: #b0aa82;
+    /* 7 */
+    --bug-type-color: #91a112;
+    /* 8 */
+    --ghost-type-color: #703f70;
+    /* 9 */
+    --steel-type-color: #60a2b9;
+    /* 10 */
+    --fire-type-color: #e72324;
+    /* 11 */
+    --water-type-color: #2481ef;
+    /* 12 */
+    --grass-type-color: #3da224;
+    /* 13 */
+    --electric-type-color: #fac100;
+    /* 14 */
+    --psychic-type-color: #ef3f7a;
+    /* 15 */
+    --ice-type-color: #3dd9ff;
+    /* 16 */
+    --dragon-type-color: #4f60e2;
+    /* 17 */
+    --dark-type-color: #4f3f3c;
+    /* 18 */
+    --fairy-type-color: #ef70ef;
+}

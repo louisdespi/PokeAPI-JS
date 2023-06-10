@@ -46,7 +46,8 @@ class Manager extends EventEmitter {
         let dict = {
             'type' : {},
             'ability' : {},
-            'pokemon-specie' : {}
+            'pokemon-specie' : {},
+            'stat' : {}
         }
         for (let type of this.collections['type'].collection) {
             dict['type'][type.string_id] = type
@@ -57,6 +58,9 @@ class Manager extends EventEmitter {
         for (let specie of this.collections['pokemon-specie'].collection) {
             dict['pokemon-specie'][specie.string_id] = specie
         }
+        for (let stat of this.collections['stat'].collection) {
+            dict['stat'][stat.string_id] = stat
+        }
         for (let pokemon of this.collections['pokemon'].collection) {
             for (let i = 0; i < pokemon.abilities.length; i++) {
                 pokemon.abilities[i] = dict['ability'][pokemon.abilities[i]]
@@ -65,6 +69,9 @@ class Manager extends EventEmitter {
                 pokemon.types[i] = dict['type'][pokemon.types[i]]
             }
             pokemon.specie = dict['pokemon-specie'][pokemon.specie]
+            for (let statObj of Object.values(pokemon.stats)) {
+                statObj.stat = dict['stat'][statObj.stat.name]
+            }
         }
     }
     where(filter_funcs) {

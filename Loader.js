@@ -26,6 +26,12 @@ class Loader extends EventEmitter {
             class_type : Ability,
             count : 298
         },
+        'stat' : {
+            name : 'stat',
+            endpoint : 'https://pokeapi.co/api/v2/stat',
+            class_type : Stat,
+            count : 8
+        },
     }
     constructor() {
         super()

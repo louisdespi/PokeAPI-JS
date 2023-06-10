@@ -71,9 +71,12 @@ class App {
                 let $pokemon_block = $(`
                     <div class="pokemon-block block-${pokemon.id}">
                         <span class="id"># ${pokemon.id}</span>
-                        <span class="name">${pokemon.specie.name}</span>
+                        <span class="name">${pokemon.specie.name.toLowerCase()}</span>
                         <div class="sprite">
                             <img src="${pokemon.sprite_url}" />
+                        </div>
+                        <div class="shiny_sprite">
+                            <img src="${pokemon.shiny_sprite_url}" />
                         </div>
                         <span class="weight">${pokemon.weight} Hg</span>
                         <span class="height">${pokemon.height} Dc</span>
@@ -81,14 +84,68 @@ class App {
                         </div>
                         <div class="abilities">
                         </div>
+                        <div class="stats">
+                            <div class="stat hp">
+                                <span class="stat-name"></span>
+                                <div class="stat-gauge outter">
+                                    <div class="stat-gauge inner"></div>
+                                </div>
+                            </div>
+                            <div class="stat attack">
+                                <span class="stat-name"></span>
+                                <div class="stat-gauge outter">
+                                    <div class="stat-gauge inner"></div>
+                                </div>
+                            </div>
+                            <div class="stat defense">
+                                <span class="stat-name"></span>
+                                <div class="stat-gauge outter">
+                                    <div class="stat-gauge inner"></div>
+                                </div>
+                            </div>
+                            <div class="stat special-attack">
+                                <span class="stat-name"></span>
+                                <div class="stat-gauge outter">
+                                    <div class="stat-gauge inner"></div>
+                                </div>
+                            </div>
+                            <div class="stat special-defense">
+                                <span class="stat-name"></span>
+                                <div class="stat-gauge outter">
+                                    <div class="stat-gauge inner"></div>
+                                </div>
+                            </div>
+                            <div class="stat speed">
+                                <span class="stat-name"></span>
+                                <div class="stat-gauge outter">
+                                    <div class="stat-gauge inner"></div>
+                                </div>
+                            </div>
+                            <!--<div class="stat accuracy">
+                                <span class="stat-name"></span>
+                                <div class="stat-gauge outter">
+                                    <div class="stat-gauge inner"></div>
+                                </div>
+                            </div>
+                            <div class="stat evasion">
+                                <span class="stat-name"></span>
+                                <div class="stat-gauge outter">
+                                    <div class="stat-gauge inner"></div>
+                                </div>
+                            </div>-->
+                        </div>
                     </div>
                 `)
-                $pokemon_block.find('.sprite img').on('mouseenter', (e) => {
-                    $(e.currentTarget).attr('src', pokemon.shiny_sprite_url)
-                })
-                $pokemon_block.find('.sprite img').on('mouseleave', (e) => {
-                    $(e.currentTarget).attr('src', pokemon.sprite_url)
-                })
+                /* BLOCK DEGUEU */
+                if (pokemon.types.length == 2) {
+                    let c1 = Type.colors[pokemon.types[0].string_id]
+                    let c2 = Type.colors[pokemon.types[1].string_id]
+                    $pokemon_block.css('background',`linear-gradient(135deg, rgba(${c1.rgb}, 0.65) 5%, rgba(${c2.rgb}, 0.65))`)
+                    $pokemon_block.css('color',`(${c1['text-color']}`)
+                } else {
+                    $pokemon_block.css('background-color',`rgba(${Type.colors[pokemon.types[0].string_id].rgb}, 0.5)`)
+                }
+                /* FIN BLOCK DEGUEU */
                 this.$grid.append($pokemon_block)
                 let $types = $pokemon_block.find('.types')
                 let $abilities = $pokemon_block.find('.abilities')
@@ -101,6 +158,12 @@ class App {
                     /*
                         <img src="assets/types/${type.id}.png">
                     */
+                }
+                let $stats = $pokemon_block.find('.stats')
+                for (let [key, stat] of Object.entries(pokemon.stats)) {
+                    let s = $stats.find(`.${stat.stat.string_id}`)
+                    s.find('.stat-name').html(`${stat.stat.name.toLowerCase()}`)
+                    s.find('.stat-gauge.inner').css('width', `${Math.round((stat.base_stat / 255) * 100)}%`)
                 }
                 for (let ability of pokemon.abilities) {
                     $abilities.append(`
