@@ -140,7 +140,7 @@ class App {
                 if (pokemon.types.length == 2) {
                     let c1 = Type.colors[pokemon.types[0].string_id]
                     let c2 = Type.colors[pokemon.types[1].string_id]
-                    $pokemon_block.css('background',`linear-gradient(135deg, rgba(${c1.rgb}, 0.65) 5%, rgba(${c2.rgb}, 0.65))`)
+                    $pokemon_block.css('background',`linear-gradient(135deg, rgba(${c1.rgb}, 0.75) 5%, rgba(${c2.rgb}, 0.75))`)
                     $pokemon_block.css('color',`(${c1['text-color']}`)
                 } else {
                     $pokemon_block.css('background-color',`rgba(${Type.colors[pokemon.types[0].string_id].rgb}, 0.5)`)
